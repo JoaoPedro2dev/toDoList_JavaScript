@@ -14,14 +14,17 @@ function openContainer(container, btn){
         container.style.display = 'none';
         btn.style.display = 'none'; 
     }
+
+    closeBtn.addEventListener('click', function(){openContainer(container, this)})
+
 }
-closeBtn.addEventListener('click', function(){openContainer(addcontainer, this)})
 
 const lista = document.querySelector('#list');
 const addBtn = document.querySelector('#addBtn');
 
+const title = document.querySelector('#inputTitle'); 
+
 function createToDo(){
-    const title = document.querySelector('#inputTitle'); 
 
     const li = document.createElement('li');
 
@@ -32,11 +35,11 @@ function createToDo(){
             <span>14/07/2024</span>
         </div>
         <div class="todo_config">
-            <button>
+            <button onclick="editarLi(this)">
                 <i class="bi bi-pen"></i>
                 Editar
             </button>
-            <button>
+            <button onclick="deleteLi(this)">
                 <i class="bi bi-x"></i>
                 Deletar
             </button>
@@ -47,6 +50,32 @@ function createToDo(){
     lista.appendChild(li);
 
     title.value = '';
+    openContainer(addcontainer, closeBtn);
 }
 
 addBtn.addEventListener('click', createToDo);
+
+function editarli(elemento){
+    const editContainer = document.querySelector('#editContainer');
+    const editBtn = document.querySelector('#editBtn');
+    const newTitle = editContainer.querySelector('input'); 
+
+    const li = elemento.closest('li');
+    const liToDo = li.querySelector('.todo_text');
+    const text = liToDo.querySelector('p');
+
+    console.log(liToDo);
+    
+    openContainer(editContainer, closeBtn);
+    newTitle.value = text.textContent;
+
+    editBtn.addEventListener('click', function(){ 
+        text.textContent = newTitle.value;
+        openContainer(editContainer, closeBtn);
+    });
+}
+
+function deleteLi(elemento){
+    const li = elemento.closest('li');
+    lista.removeChild(li);
+}

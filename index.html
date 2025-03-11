@@ -14,10 +14,44 @@
             <h1>Todo-list</h1>
         </header>
         <ul id="list"> 
-            <div id="addTodo">
+            <li id="addTodo">
                 <i class="bi bi-plus-circle-dotted"></i>
                 <p>Adicionar Tarefa</p>
-            </div>
+            </li>
+
+            <li class="todo">
+                <div class="todo_text">
+                    <p>TAREFA</p>
+                    <span>14/07/2024</span>
+                </div>
+                <div class="todo_config">
+                    <button onclick="editarli(this)">
+                        <i class="bi bi-pen"></i>
+                        Editar
+                    </button>
+                    <button onclick="deleteLi(this)">
+                        <i class="bi bi-x"></i>
+                        Deletar
+                    </button>
+                </div>
+            </li>
+
+            <li class="todo">
+                <div class="todo_text">
+                    <p>TAREFA</p>
+                    <span>14/07/2024</span>
+                </div>
+                <div class="todo_config">
+                    <button onclick="editarli(this)">
+                        <i class="bi bi-pen"></i>
+                        Editar
+                    </button>
+                    <button onclick="deleteLi(this)">
+                        <i class="bi bi-x"></i>
+                        Deletar
+                    </button>
+                </div>
+            </li>
         </ul>
     </div>
 
@@ -29,6 +63,18 @@
             <div id="inputBox">
                 <input type="text" id="inputTitle" placeholder="Escrava o contexto">
                 <button id="addBtn">Adicionar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="editContainer">
+        <div class="container">
+            <header>
+                <h2>Editar Tarefa</h2>
+            </header>
+            <div id="inputBox">
+                <input type="text" >
+                <button id="editBtn">Editar</button>
             </div>
         </div>
     </div>
