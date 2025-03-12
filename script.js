@@ -26,11 +26,12 @@ function openContainer(container, btn){
 function createToDo(){
     const li = document.createElement('li');
     li.classList.add('todo');
+    const textoMaisuculo = title.value[0].toUpperCase()+title.value.slice(1);
 
     li.innerHTML = 
     `
         <div class="todo_text">
-            <p>${title.value}</p>
+            <p>${textoMaisuculo}</p>
             <span>14/07/2024</span>
         </div>
         <div class="todo_config">
@@ -64,14 +65,13 @@ function editarLi(elemento){
     const li = elemento.closest('li');
     const liToDo = li.querySelector('.todo_text');
     let text = liToDo.querySelector('p');
-
-    console.log(li);
     
     openContainer(editContainer, closeBtn);
     newTitle.value = text.textContent;
 
     editBtn.addEventListener('click', function(){ 
-        text.textContent = newTitle.value;
+        const newTextoMaiusculo = newTitle.value[0].toUpperCase()+newTitle.value.slice(1);
+        text.textContent = newTextoMaiusculo;
         openContainer(editContainer, closeBtn)
     }, {once:true});
 }
