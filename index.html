@@ -21,28 +21,11 @@
 
             <li class="todo">
                 <div class="todo_text">
-                    <p>TAREFA</p>
+                    <p>Tarefa de teste</p>
                     <span>14/07/2024</span>
                 </div>
                 <div class="todo_config">
-                    <button onclick="editarli(this)">
-                        <i class="bi bi-pen"></i>
-                        Editar
-                    </button>
-                    <button onclick="deleteLi(this)">
-                        <i class="bi bi-x"></i>
-                        Deletar
-                    </button>
-                </div>
-            </li>
-
-            <li class="todo">
-                <div class="todo_text">
-                    <p>TAREFA</p>
-                    <span>14/07/2024</span>
-                </div>
-                <div class="todo_config">
-                    <button onclick="editarli(this)">
+                    <button onclick="editarLi(this)">
                         <i class="bi bi-pen"></i>
                         Editar
                     </button>
@@ -60,7 +43,7 @@
             <header>
                 <h2>Adicionar Tarefa</h2>
             </header>
-            <div id="inputBox">
+            <div class="inputBox">
                 <input type="text" id="inputTitle" placeholder="Escrava o contexto">
                 <button id="addBtn">Adicionar</button>
             </div>
@@ -72,7 +55,7 @@
             <header>
                 <h2>Editar Tarefa</h2>
             </header>
-            <div id="inputBox">
+            <div class="inputBox">
                 <input type="text" >
                 <button id="editBtn">Editar</button>
             </div>

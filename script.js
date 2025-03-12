@@ -1,10 +1,15 @@
 const addcontainer = document.querySelector('#addContainer');
 const closeBtn = document.querySelector('#closeBtn')
 const addTodo = document.querySelector('#addTodo');
+const lista = document.querySelector('#list');
+const addBtn = document.querySelector('#addBtn');
+const title = document.querySelector('#inputTitle'); 
 
 addTodo.addEventListener('click', function(){
     openContainer(addcontainer, closeBtn);
 })
+
+addBtn.addEventListener('click', createToDo);
 
 function openContainer(container, btn){
     if(window.getComputedStyle(container).display == 'none'){
@@ -16,17 +21,11 @@ function openContainer(container, btn){
     }
 
     closeBtn.addEventListener('click', function(){openContainer(container, this)})
-
 }
 
-const lista = document.querySelector('#list');
-const addBtn = document.querySelector('#addBtn');
-
-const title = document.querySelector('#inputTitle'); 
-
 function createToDo(){
-
     const li = document.createElement('li');
+    li.classList.add('todo');
 
     li.innerHTML = 
     `
@@ -46,36 +45,33 @@ function createToDo(){
         </div>
     `;
 
-    li.classList.add('todo');
     lista.appendChild(li);
 
     title.value = '';
     openContainer(addcontainer, closeBtn);
 }
 
-addBtn.addEventListener('click', createToDo);
+function deleteLi(elemento){
+    const li = elemento.closest('li');
+    lista.removeChild(li);
+}
 
-function editarli(elemento){
+function editarLi(elemento){
     const editContainer = document.querySelector('#editContainer');
     const editBtn = document.querySelector('#editBtn');
-    const newTitle = editContainer.querySelector('input'); 
+    let newTitle = editContainer.querySelector('input'); 
 
     const li = elemento.closest('li');
     const liToDo = li.querySelector('.todo_text');
-    const text = liToDo.querySelector('p');
+    let text = liToDo.querySelector('p');
 
-    console.log(liToDo);
+    console.log(li);
     
     openContainer(editContainer, closeBtn);
     newTitle.value = text.textContent;
 
     editBtn.addEventListener('click', function(){ 
         text.textContent = newTitle.value;
-        openContainer(editContainer, closeBtn);
-    });
-}
-
-function deleteLi(elemento){
-    const li = elemento.closest('li');
-    lista.removeChild(li);
+        openContainer(editContainer, closeBtn)
+    }, {once:true});
 }

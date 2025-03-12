@@ -115,7 +115,7 @@ body > .container > #list > .todo > .todo_config > button > i{
 
 #addContainer, #editContainer{
     display: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
@@ -123,7 +123,7 @@ body > .container > #list > .todo > .todo_config > button > i{
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-#addContainer > .container > #inputBox, #editContainer > .container > #inputBox{
+#addContainer > .container > .inputBox, #editContainer > .container > .inputBox{
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -132,7 +132,7 @@ body > .container > #list > .todo > .todo_config > button > i{
     align-items: center;
 }
 
-#addContainer > .container > #inputBox > input, #editContainer > .container > #inputBox > input{
+#addContainer > .container > .inputBox > input, #editContainer > .container > .inputBox > input{
     width: 100%;
     padding: 15px;
     border-radius: 5px;
@@ -141,7 +141,7 @@ body > .container > #list > .todo > .todo_config > button > i{
 }
 
 
-#addContainer > .container > #inputBox > button, #editContainer > .container > #inputBox > button{
+#addContainer > .container > .inputBox > button, #editContainer > .container > .inputBox > button{
     width: fit-content;
     padding: 15px 45px;
     border-radius: 5px;
