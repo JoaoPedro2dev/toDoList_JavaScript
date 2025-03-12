@@ -4,6 +4,10 @@ const addTodo = document.querySelector('#addTodo');
 const lista = document.querySelector('#list');
 const addBtn = document.querySelector('#addBtn');
 const title = document.querySelector('#inputTitle'); 
+const erro1 = document.getElementsByClassName('erro')[0];
+const erro2 = document.getElementsByClassName('erro')[1];
+
+console.log(erro2)
 
 addTodo.addEventListener('click', function(){
     openContainer(addcontainer, closeBtn);
@@ -24,9 +28,17 @@ function openContainer(container, btn){
 }
 
 function createToDo(){
+    verificarErro(erro1, title);
+
     const li = document.createElement('li');
     li.classList.add('todo');
+
+    if(!title.value){
+        return;
+    }
+
     const textoMaisuculo = title.value[0].toUpperCase()+title.value.slice(1);
+
 
     let data = new Date().toLocaleDateString();
     let hora = new Date().getHours();
@@ -74,8 +86,23 @@ function editarLi(elemento){
     newTitle.value = text.textContent;
 
     editBtn.addEventListener('click', function(){ 
+        verificarErro(erro2, newTitle);
+
+        if(!newTitle.value){
+            return;
+        }
+
         const newTextoMaiusculo = newTitle.value[0].toUpperCase()+newTitle.value.slice(1);
         text.textContent = newTextoMaiusculo;
         openContainer(editContainer, closeBtn)
     }, {once:true});
+}
+
+function verificarErro(erro, input){
+    if(input.value.trim() === ''){
+        erro.style.display = 'block';
+        return;
+    }else{
+        erro.style.display = 'none';
+    }
 }

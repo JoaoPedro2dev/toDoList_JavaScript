@@ -154,7 +154,7 @@ body > .container > #list > .todo > .todo_config > button > i{
 }
 
 #closeBtn{
-    position: absolute;
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -173,6 +173,14 @@ body > .container > #list > .todo > .todo_config > button > i{
 
 #closeBtn:hover{
     background-color: #b4b4b4;
+}
+
+.erro{
+    width: 100%;
+    text-align: left;
+    color: red;
+    display: none;
+    cursor: default;
 }
 
 @media screen and (max-width: 800px){
