@@ -174,3 +174,27 @@ body > .container > #list > .todo > .todo_config > button > i{
 #closeBtn:hover{
     background-color: #b4b4b4;
 }
+
+@media screen and (max-width: 800px){
+    body, #addContainer, #editContainer{
+        padding: 20px;
+    }
+
+    body > .container > #list{
+        padding: 10px;
+    }
+
+    body > .container > #list > .todo{
+        padding: 10px;
+    }
+
+    body > .container > #list > .todo > .todo_config > button{
+        padding: 5px;
+        width: 40px;
+        font-size: x-small;
+    }
+
+    body > .container > #list > .todo > .todo_config > button > i{
+        font-size: 20px;
+    }
+}

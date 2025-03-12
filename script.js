@@ -28,11 +28,15 @@ function createToDo(){
     li.classList.add('todo');
     const textoMaisuculo = title.value[0].toUpperCase()+title.value.slice(1);
 
+    let data = new Date().toLocaleDateString();
+    let hora = new Date().getHours();
+    let minutos = new Date().getMinutes();
+
     li.innerHTML = 
     `
         <div class="todo_text">
             <p>${textoMaisuculo}</p>
-            <span>14/07/2024</span>
+            <span>${data} - ${hora}:${minutos}</span>
         </div>
         <div class="todo_config">
             <button onclick="editarLi(this)">
